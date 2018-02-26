@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2017
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pirate's World", "Pirate's World.csproj", "{B50FC409-576C-BB99-965C-C03B9C8D17B8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pirate's World.Editor", "Pirate's World.Editor.csproj", "{75172C35-0C03-20AD-86F0-A2C0FE77FE09}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B50FC409-576C-BB99-965C-C03B9C8D17B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B50FC409-576C-BB99-965C-C03B9C8D17B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B50FC409-576C-BB99-965C-C03B9C8D17B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B50FC409-576C-BB99-965C-C03B9C8D17B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75172C35-0C03-20AD-86F0-A2C0FE77FE09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75172C35-0C03-20AD-86F0-A2C0FE77FE09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75172C35-0C03-20AD-86F0-A2C0FE77FE09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75172C35-0C03-20AD-86F0-A2C0FE77FE09}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
