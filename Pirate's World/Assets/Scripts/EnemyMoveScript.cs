@@ -51,12 +51,12 @@ public class EnemyMoveScript : MonoBehaviour {
 
     void NewHeadingRoutine()
     {
-        xValMin = .2f;
-        xValMax = 112f;
+        xValMin = -74f;
+        xValMax = 36f;
         heading = Random.Range(xValMin, xValMax);
 
-        zValMin = .2f;
-        zValMax = 112f;
+        zValMin = -84f;
+        zValMax = 22;
         heading1 = Random.Range(zValMin, zValMax);
 
         float yVal = boat.transform.position.y;
