@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyMoveScript : MonoBehaviour {
 
@@ -11,7 +12,6 @@ public class EnemyMoveScript : MonoBehaviour {
     public float speedOfBoat = 10;
     public GameObject boat;
 
-    public Rigidbody controller;
     public float heading;
     public float heading1;
 
@@ -20,23 +20,36 @@ public class EnemyMoveScript : MonoBehaviour {
     private float zValMin;
     private float zValMax;
 
+    public float damping = 2;
+    private Quaternion targetRotation;
+
+    private NavMeshAgent navComponent;
+
     // Use this for initialization
     void Awake()
     {
         heading = boat.transform.position.x;
         heading1 = boat.transform.position.z;
 
-        controller = GetComponent<Rigidbody>();
-
         StartCoroutine(NewHeading());
+
+        navComponent = boat.gameObject.GetComponent<NavMeshAgent>();
+
+        Destination = new Vector3(-13.5f, 63.08f, -76.97f);
+        navComponent.Warp(Destination);
     }
 
     void Update()
     {
-        boat.transform.LookAt(Destination);
-        //transform.rotation = Quaternion.Lerp(from.rotation, to.rotation, Time.time * speed);
-        float step = speedOfBoat * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, Destination, step);
+        //Vector3 minus = new Vector3(0, -90, 0);
+        Vector3 looking = boat.transform.position - Destination;
+        targetRotation = Quaternion.LookRotation(looking, Vector3.up);
+        boat.transform.rotation = Quaternion.Slerp(boat.transform.rotation, targetRotation, 0);
+
+        navComponent.SetDestination(Destination);
+
+       //boat.transform.eulerAngles = new Vector3(0, -90, 0);
+
     }
 
     IEnumerator NewHeading()
@@ -44,6 +57,7 @@ public class EnemyMoveScript : MonoBehaviour {
         while (true)
         {
             NewHeadingRoutine();
+
             print("Distination: " + Destination);
             yield return new WaitForSeconds(TimeBetween);
         }

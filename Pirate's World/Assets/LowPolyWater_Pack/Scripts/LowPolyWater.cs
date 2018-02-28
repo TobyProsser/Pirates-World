@@ -14,6 +14,7 @@ namespace LowPolyWater
         MeshFilter meshFilter;
         Mesh mesh;
         Vector3[] vertices;
+        private bool isReadable;
 
         private void Awake()
         {
@@ -93,6 +94,7 @@ namespace LowPolyWater
 
             //Update the mesh properties
             mesh.vertices = vertices;
+            isReadable = true;
             mesh.RecalculateNormals();
             mesh.MarkDynamic();
             meshFilter.mesh = mesh;
